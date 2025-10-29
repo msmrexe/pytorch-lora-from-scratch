@@ -1,0 +1,38 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+*.env
+
+# IDE / OS specific
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Project-specific artifacts
+# ---
+# NOTE: These directories should contain a blank .gitkeep file
+# so the folder structure is tracked by git, but the
+# large data/model files inside are not.
+# ---
+
+# Data
+# Ignore processed data and the raw csv
+data/processed/
+data/raw/*.csv
+
+# Logs
+logs/
+
+# Models
+models/
+
+# Notebook checkpoints
+.ipynb_checkpoints
