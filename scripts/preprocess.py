@@ -6,14 +6,23 @@ classes, cleans text, and splits it into train/test sets, saving
 the results to an output directory.
 """
 
+import sys
 import os
+
 import argparse
 import re
 import json
 import logging
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+
+# Add the project root directory to the Python path
+# This allows us to import from the 'src' folder
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(project_root)
+
 from src.utils import setup_logging
 
 def parse_args():
