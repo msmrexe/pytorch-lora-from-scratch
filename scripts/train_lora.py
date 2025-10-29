@@ -6,12 +6,20 @@ LoRA layers (from-scratch implementation), and fine-tunes only
 the LoRA parameters and the classifier head.
 """
 
+import sys
 import os
 import argparse
 import logging
+
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, AdamW
+
+# Add the project root directory to the Python path
+# This allows us to import from the 'src' folder
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(project_root)
+
 from src.utils import setup_logging, load_processed_data, ComplaintDataset, save_metrics
 from src.lora import apply_lora_to_bert, mark_only_lora_as_trainable, print_trainable_parameters
 from src.training_module import train_epoch, evaluate
