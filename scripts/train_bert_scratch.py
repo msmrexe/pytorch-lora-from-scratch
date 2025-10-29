@@ -5,12 +5,20 @@ This script initializes a small BERT model with a custom configuration
 and trains it on the processed complaint data.
 """
 
+import sys
 import os
 import argparse
 import logging
+
 import torch
 from torch.utils.data import DataLoader
 from transformers import BertConfig, BertForSequenceClassification, AdamW, BertTokenizer
+
+# Add the project root directory to the Python path
+# This allows us to import from the 'src' folder
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(project_root)
+
 from src.utils import setup_logging, load_processed_data, ComplaintDataset, save_metrics
 from src.training_module import train_epoch, evaluate
 
